@@ -53,20 +53,25 @@ Figure -02 HALF Subtractor
 ```
 Developed By: POOJA A
 Register No: 212222240072
-
 ```
-module ex3(a,b,sum,carry,D,Bo);
+
+*half_adder:*
+```
+module halfadd_top(a,b,sum,carry);
 input a,b;
-output sum,carry,D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
-//TYPE HERE THE COMMAND FOR SUM GENERATION IN GATE LEVEL MODELLING
-//TYPE HERE THE COMMAND FOR CARRY GENERATION IN GATE LEVEL MODELLING
-xor(sum,a,b);
-and(carry,a,b);
-//Type logic for half subtractor difference D,Borrow Bo using gate level modelling
-wire abar;
-not(abar,a);
-xor(D,a,b);
-and(Bbar,abar,b);
+output sum,carry; 
+ assign sum = a^b;
+ assign carry = a & b;
+endmodule
+```
+
+*half_subractor*
+```
+module halfsub_top(a,b,D,Bo);
+input a,b;
+output D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
+assign D = a ^ b;
+  assign Bo = ~a & b;
 endmodule
 ```
 
