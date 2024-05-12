@@ -55,36 +55,28 @@ Developed By: POOJA A
 Register No: 212222240072
 ```
 
-*half_adder:*
 ```
-module halfadd_top(a,b,sum,carry);
+module ex3(a,b,sum,carry,D,Bo);
 input a,b;
-output sum,carry; 
- assign sum = a^b;
- assign carry = a & b;
-endmodule
-```
-
-*half_subractor*
-```
-module halfsub_top(a,b,D,Bo);
-input a,b;
-output D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
-assign D = a ^ b;
-  assign Bo = ~a & b;
+output sum,carry,D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
+//TYPE HERE THE COMMAND FOR SUM GENERATION IN GATE LEVEL MODELLING
+//TYPE HERE THE COMMAND FOR CARRY GENERATION IN GATE LEVEL MODELLING
+xor(sum,a,b);
+and(carry,a,b);
+//Type logic for half subtractor difference D,Borrow Bo using gate level modelling
+wire abar;
+not(abar,a);
+xor(D,a,b);
+and(Bbar,abar,b);
 endmodule
 ```
 
 **RTL Schematic**
-![319517265-a161dc0f-3fca-40af-b323-b9db1e666429](https://github.com/poojaanbu0/HALF_ADDER_SUBTRACTOR/assets/119390329/7fc87257-ed87-460c-b04c-0b71665c61b7)
+![image](https://github.com/poojaanbu0/HALF_ADDER_SUBTRACTOR/assets/119390329/7f3690e0-dcf0-42b5-ab5d-6870d6ee7695)
 
 
 **Output/TIMING Waveform**
-HALF ADDER:
-![319517867-ef6d349d-59a7-4136-9f52-7888de577f5a](https://github.com/poojaanbu0/HALF_ADDER_SUBTRACTOR/assets/119390329/36576166-df8f-40da-818c-17e38fa62ef5)
-
-HALF SUBTRACTOR:
-![319518201-6249ee00-ee4a-4f3e-bd4f-bbb70f7f5f90](https://github.com/poojaanbu0/HALF_ADDER_SUBTRACTOR/assets/119390329/b666807a-57b5-4675-b572-74944b569352)
+![image](https://github.com/poojaanbu0/HALF_ADDER_SUBTRACTOR/assets/119390329/52aaa12c-8b33-422b-9398-7f91c739028f)
 
 
 **Result:**
